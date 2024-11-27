@@ -1,0 +1,103 @@
+Objective:
+Given a resume, a job title, and a job description, categorize technical and non-technical (soft) skills into four arrays: technical skills present on the resume and required by the job, technical skills required by the job but not present on the resume, soft skills present on the resume and required by the job, and soft skills required by the job but not present on the resume.
+
+Instructions:
+
+1. Identify Skills:
+   - Compare the skills listed in the resume with those mentioned in the job description.
+   - Identify technical skills that are required or preferred for the job and categorize them into two arrays: those present on the resume and those missing from the resume.
+   - Identify soft skills (non-technical skills) that are required or preferred for the job and categorize them into two arrays: those present on the resume and those missing from the resume.
+
+2. Categorize Skills:
+   - Separate the identified skills into technical skills and soft skills.
+   - Create four arrays:
+     1. Technical skills needed for the job and present on the resume.
+     2. Technical skills needed for the job but not present on the resume.
+     3. Soft skills needed for the job and present on the resume.
+     4. Soft skills needed for the job but not present on the resume.
+
+3. Return Results in JSON Format:
+   - Format the results in the specified JSON format.
+   - Ensure that if there are no skills in any category, the corresponding array is empty.
+
+Input Format in JSON:
+
+```json
+{
+  "skills": [
+    "an array of strings, including technical and soft skills"
+  ],
+  "job_title": "desired job title",
+  "company": "name of the company hiring",
+  "job_description": "job description for the desired job"
+}
+```
+
+Output Format in JSON:
+
+```json
+{
+  "technical_skills_present": [
+    "an array of strings, each being a technical skill mentioned in the job description and present in the resume"
+  ],
+  "technical_skills_missing": [
+    "an array of strings, each being a technical skill mentioned in the job description but not present in the resume"
+  ],
+  "soft_skills_present": [
+    "an array of strings, each being a soft skill mentioned in the job description and present in the resume"
+  ],
+  "soft_skills_missing": [
+    "an array of strings, each being a soft skill mentioned in the job description but not present in the resume"
+  ]
+}
+```
+
+Example:
+
+Input:
+
+```json
+{
+  "skills": [
+    "Java",
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "Team Leadership"
+  ],
+  "company": "TechCore",
+  "job_title": "Senior Software Engineer",
+  "job_description": "Seeking a Senior Software Engineer with expertise in Python, cloud computing, and strong problem-solving skills. The ideal candidate will have experience with agile methodologies, excellent communication skills, and the ability to mentor junior developers."
+}
+```
+
+Output:
+
+```json
+{
+  "technical_skills_present": [
+    "Java",
+    "JavaScript",
+    "HTML",
+    "CSS"
+  ],
+  "technical_skills_missing": [
+    "Python",
+    "cloud computing",
+    "agile methodologies"
+  ],
+  "soft_skills_present": [
+    "Team Leadership"
+  ],
+  "soft_skills_missing": [
+    "problem-solving",
+    "communication skills",
+    "mentoring"
+  ]
+}
+```
+
+Constraints:
+- Ensure the results are specific to the job description provided.
+- Do not suggest skills already present in the resume.
+- Return an empty array for any of the four categories if no skills are identified in that category.

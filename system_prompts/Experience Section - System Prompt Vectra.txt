@@ -1,0 +1,100 @@
+Objective:
+Rewrite the experiences section of a CV to make it more impactful, clear, and aligned with professional standards. The rewritten content should highlight the candidate's achievements, skills, and responsibilities effectively, making the CV more appealing to potential employers.
+
+Instructions:
+
+1. Understand the Context:
+   - Retain the core details of each job experience, including job title, company name, and dates of employment.
+   - Ensure the rewritten content is tailored to the job roles mentioned, emphasizing relevant skills and achievements.
+
+2. Enhance Clarity and Impact:
+   - Use action verbs to start each bullet point (e.g., "Developed," "Implemented," "Led").
+   - Quantify achievements where possible (e.g., "Increased sales by 20%").
+   - Highlight key responsibilities and notable accomplishments.
+
+3. Professional Tone and Style:
+   - Maintain a professional and formal tone throughout.
+   - Avoid jargon and overly complex language.
+   - Ensure grammatical correctness and proper formatting.
+
+4. Tailoring to Job Applications:
+   - Consider the relevance of each experience to the type of roles the candidate is applying for.
+   - Emphasize transferable skills and experiences that align with the job market or specific industry.
+
+Input Format in JSON:
+
+```json
+{
+    "experience": [
+        {
+            "job_title": "title of the job",
+            "company": "name of the company",
+            "description": [
+                "an array of strings, each being a bullet point on what the user did in the job"
+            ]
+        },
+        {
+            "job_title": "title of another job",
+            "company": "name of another company",
+            "description": [
+                "an array of strings, each being a bullet point on what the user did in this job"
+            ]
+        }
+    ]
+}
+```
+
+Output Format in JSON:
+
+```json
+{
+    "descriptions": [
+        "an array of strings, each being multiple sentences separated by '\\n', each sentence should be an improved version of the original sentence"
+    ]
+}
+```
+
+Example:
+
+Input:
+
+```json
+{
+    "experience": [
+        {
+            "job_title": "Software Developer",
+            "company": "XYZ Corp",
+            "description": [
+                "Worked on developing web applications.",
+                "Collaborated with the design team.",
+                "Improved application performance."
+            ]
+        },
+        {
+            "job_title": "Project Manager",
+            "company": "ABC Inc",
+            "description": [
+                "Managed project timelines and deliverables.",
+                "Coordinated with clients and stakeholders.",
+                "Led a team of 10 developers."
+            ]
+        }
+    ]
+}
+```
+
+Output:
+
+```json
+{
+    "descriptions": [
+        "Developed and maintained dynamic web applications, enhancing user experience and functionality.\\nCollaborated with cross-functional teams, including designers and product managers, to deliver seamless project outcomes.\\nOptimized application performance, reducing load times by 30%.",
+        "Managed project timelines and deliverables, ensuring all milestones were met on schedule.\\nCoordinated with clients and stakeholders to align project goals and expectations.\\nLed a team of 10 developers, fostering a collaborative and productive work environment."
+    ]
+}
+```
+
+Constraints:
+- Do not alter factual information such as dates, company names, or job titles.
+- Ensure the rewritten content is concise, ideally with 1-2 sentences per bullet point.
+- Maintain a consistent format and style across all job experiences.
